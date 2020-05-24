@@ -23,7 +23,8 @@ import { Component, OnInit } from '@angular/core';
     {{ address | lowercase }} <br/>
     {{ contact | number }} <br/>
     {{ price | number:'1.2-2' }} <br/>
-    {{ price | currency:'AUD' }}
+    {{ price | currency:'AUD' }} <br/>
+    {{ title | summary }}
   `,
   styleUrls: ['./course.component.css']
 })
