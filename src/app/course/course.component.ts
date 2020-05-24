@@ -14,12 +14,15 @@ import { Component, OnInit } from '@angular/core';
     <div (click)="onDivClicked($event)">
       <button class="btn btn-primary" (click)="onButtonClicked($event)">Save</button>
     </div>
+    <h4> Two way binding <h4>
+    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
   `,
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
   title: string;
   courses: any[];
+  email = "test@domain.com";
 
   constructor(courseService: CourseService) {
     this.courses = courseService.getCourses();
@@ -40,6 +43,10 @@ export class CourseComponent implements OnInit {
   onButtonClicked($event) {
     event.stopPropagation();
     console.log("Button clicked ", $event);
+  }
+
+  onKeyUp() {
+    console.log('Enter Pressed ', this.email);
   }
 
 }
