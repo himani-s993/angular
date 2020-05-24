@@ -10,12 +10,20 @@ import { Component, OnInit } from '@angular/core';
         {{ course }}
       </li>
     </ul>
+    <br/>
     <h4> Bubble up Event <h4>
     <div (click)="onDivClicked($event)">
       <button class="btn btn-primary" (click)="onButtonClicked($event)">Save</button>
     </div>
+    <br/>
     <h4> Two way binding <h4>
-    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
+    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/><br/>
+    <h4> Pipers for formating <h4>
+    {{ name | uppercase }} <br/>
+    {{ address | lowercase }} <br/>
+    {{ contact | number }} <br/>
+    {{ price | number:'1.2-2' }} <br/>
+    {{ price | currency:'AUD' }}
   `,
   styleUrls: ['./course.component.css']
 })
@@ -23,6 +31,11 @@ export class CourseComponent implements OnInit {
   title: string;
   courses: any[];
   email = "test@domain.com";
+
+  name = 'Himani';
+  address = 'Pune';
+  contact = 12345;
+  price = 123;
 
   constructor(courseService: CourseService) {
     this.courses = courseService.getCourses();
