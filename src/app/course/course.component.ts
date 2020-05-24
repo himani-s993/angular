@@ -10,6 +10,10 @@ import { Component, OnInit } from '@angular/core';
         {{ course }}
       </li>
     </ul>
+    <h4> Bubble up Event <h4>
+    <div (click)="onDivClicked($event)">
+      <button class="btn btn-primary" (click)="onButtonClicked($event)">Save</button>
+    </div>
   `,
   styleUrls: ['./course.component.css']
 })
@@ -27,6 +31,15 @@ export class CourseComponent implements OnInit {
 
   getTitle() {
     return this.title;
+  }
+
+  onDivClicked($event) {
+    console.log("Div clicked ", $event);
+  }
+
+  onButtonClicked($event) {
+    event.stopPropagation();
+    console.log("Button clicked ", $event);
   }
 
 }
