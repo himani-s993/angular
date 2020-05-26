@@ -1,20 +1,20 @@
+import { CasingPipe } from './casing.pip';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { CourseComponent } from './course/course.component';
-import { CourseService } from './course/course.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CourseComponent
+    CasingPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [
-    CourseService
   ],
   bootstrap: [AppComponent]
 })
